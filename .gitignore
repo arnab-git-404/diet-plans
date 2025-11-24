@@ -17,6 +17,8 @@ build/
 .env.test.local
 .env.production.local
 
+googleApis.json
+
 # Vercel / deployments
 .vercel/
 .vercel_build_output/
