@@ -53,7 +53,7 @@ Create a `.env.local` file in the root directory with the following variables:
 ```env
 # MongoDB
 MONGODB_URI=mongodb://localhost:27017/dietplans
-# Or use MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/dietplans
+# Or use MongoDB Atlas: mongodb+srv://...
 
 # Cloudinary
 CLOUDINARY_CLOUD_NAME=your_cloud_name
