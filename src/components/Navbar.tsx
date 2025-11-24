@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Search, ShoppingCart, User, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import  Link  from "next/link"; 
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,13 +17,13 @@ export default function Navbar() {
 
           <div className="flex items-center gap-10">
 
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <img
               src="https://shoppurezen.com/cdn/shop/files/Purezen_Final_Logo_01_12ca1db0-e411-4573-a8fe-8a6962b17d58.webp"
                 alt="Purezen Logo"
                 className="h-7 w-auto"
                 />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8 text-lg font-medium">
@@ -73,9 +74,9 @@ export default function Navbar() {
             //   size="icon"
               className="text-white"
             >
-              <a href="/admin/login">
+              <Link href="/admin/login">
                 <User className="w-6 h-6" />
-              </a>
+              </Link>
             </button>
 
             <Button
