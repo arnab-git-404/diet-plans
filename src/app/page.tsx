@@ -1,164 +1,3 @@
-// 'use client';
-
-// import { useState, useEffect } from 'react';
-// import { useRouter } from 'next/navigation';
-// import Link from 'next/link';
-// import Image from 'next/image';
-// import { Card, CardContent, CardFooter } from '@/components/ui/card';
-// import { Button } from '@/components/ui/button';
-// import { Input } from '@/components/ui/input';
-// import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
-// import { DietPlan } from '@/types';
-
-// export default function HomePage() {
-//   const router = useRouter();
-//   const [dietPlans, setDietPlans] = useState<DietPlan[]>([]);
-//   const [loading, setLoading] = useState(true);
-//   const [search, setSearch] = useState('');
-//   const [page, setPage] = useState(1);
-//   const [totalPages, setTotalPages] = useState(1);
-
-//   useEffect(() => {
-//     fetchDietPlans();
-//   }, [page, search]);
-
-//   const fetchDietPlans = async () => {
-//     setLoading(true);
-//     try {
-//       const params = new URLSearchParams();
-//       if (search) params.append('search', search);
-//       params.append('page', page.toString());
-//       params.append('limit', '12');
-
-//       const response = await fetch(`/api/diet-plans?${params}`);
-//       const data = await response.json();
-
-//       setDietPlans(data.dietPlans || []);
-//       setTotalPages(data.pagination?.totalPages || 1);
-//     } catch (error) {
-//       console.error('Error fetching diet plans:', error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleSearch = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setPage(1);
-//     const params = new URLSearchParams();
-//     if (search) params.append('search', search);
-//     router.push(`/?${params}`);
-//   };
-
-//   return (
-//     <div className=" max-w-7xl mx-auto px-12 py-12">
-//       {/* Hero Section */}
-//       <div className="text-center mb-12">
-//         <h1 className="text-5xl font-bold mb-4 bg-[#02807f] bg-clip-text text-transparent">
-//           Find Your Perfect Diet Plan
-//         </h1>
-//         <p className="text-xl text-muted-foreground mb-8">
-//           Browse our collection of expert-designed diet plans tailored to your health goals
-//         </p>
-
-//         {/* Search Bar */}
-//         <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
-//           <div className="relative">
-//             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-//             <Input
-//               type="text"
-//               placeholder="Search diet plans by keyword..."
-//               value={search}
-//               onChange={(e) => setSearch(e.target.value)}
-//               className="pl-10 h-12 text-base"
-//             />
-//           </div>
-//         </form>
-//       </div>
-
-//       {/* Diet Plans Grid */}
-//       {loading ? (
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//           {[...Array(6)].map((_, i) => (
-//             <Card key={i} className="overflow-hidden animate-pulse">
-//               <div className="aspect-video bg-muted" />
-//               <CardContent className="p-6">
-//                 <div className="h-6 bg-muted rounded mb-2" />
-//                 <div className="h-4 bg-muted rounded w-3/4" />
-//               </CardContent>
-//             </Card>
-//           ))}
-//         </div>
-//       ) : dietPlans.length === 0 ? (
-//         <div className="text-center py-12">
-//           <p className="text-xl text-muted-foreground">No diet plans found</p>
-//         </div>
-//       ) : (
-//         <>
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//             {dietPlans.map((plan) => (
-//               <Link key={plan._id} href={`/diet-plans/${plan._id}`}>
-//                 <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full">
-//                   <div className="relative aspect-video">
-//                     <Image
-//                       src={plan.imageUrl}
-//                       alt={plan.title}
-//                       fill
-//                       className="object-cover"
-//                     />
-//                     {plan.price === 0 && (
-//                       <div className="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-//                         FREE
-//                       </div>
-//                     )}
-//                   </div>
-//                   <CardContent className="p-6">
-//                     <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-//                     <p className="text-muted-foreground line-clamp-2">
-//                       {plan.description}
-//                     </p>
-//                   </CardContent>
-//                   <CardFooter className="p-6 pt-0">
-//                     <Button className="w-full" variant="outline">
-//                       View Details
-//                     </Button>
-//                   </CardFooter>
-//                 </Card>
-//               </Link>
-//             ))}
-//           </div>
-
-//           {/* Pagination */}
-//           {totalPages > 1 && (
-//             <div className="flex justify-center items-center gap-4 mt-12">
-//               <Button
-//                 variant="outline"
-//                 size="icon"
-//                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-//                 disabled={page === 1}
-//               >
-//                 <ChevronLeft className="h-4 w-4" />
-//               </Button>
-//               <span className="text-sm text-muted-foreground">
-//                 Page {page} of {totalPages}
-//               </span>
-//               <Button
-//                 variant="outline"
-//                 size="icon"
-//                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-//                 disabled={page === totalPages}
-//               >
-//                 <ChevronRight className="h-4 w-4" />
-//               </Button>
-//             </div>
-//           )}
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-
 
 // V2 Home page
 "use client";
@@ -198,7 +37,6 @@ export default function HomePage() {
   useEffect(() => {
     fetchDietPlans();
     updateCartState();
-    // setCartCount(getCartCount());
   }, [page, search]);
 
     const updateCartState = () => {
@@ -243,7 +81,7 @@ export default function HomePage() {
       pdfUrl: plan.pdfUrl,
       price: plan.price,
     });
-    // setCartCount(getCartCount());
+    
     updateCartState();
     toast.success(`${plan.title} added to cart!`);
   };
