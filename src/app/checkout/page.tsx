@@ -456,7 +456,7 @@ export default function CheckoutPage() {
                                             value={formData.age}
                                             onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                                             required
-                                            className="w-full border rounded-md px-3 py-2"
+                                            className="w-full border rounded-md px-3 py-2 hover:cursor-pointer"
                                         >
                                             <option value="">Select age band</option>
                                             <option value="18-25">18-25</option>
@@ -512,7 +512,7 @@ export default function CheckoutPage() {
                                             value={formData.healthGoal}
                                             onChange={(e) => setFormData({ ...formData, healthGoal: e.target.value })}
                                             required
-                                            className="w-full border rounded-md px-3 py-2"
+                                            className="w-full border rounded-md px-3 py-2 hover:cursor-pointer"
                                         >
                                             <option value="">Select health goal</option>
                                             <option value="Weight Loss">Weight Loss</option>
@@ -541,7 +541,7 @@ export default function CheckoutPage() {
                                     )}
 
                                     {/* Submit Button */}
-                                    <Button type="submit" size="lg" className="w-full" disabled={loading}>
+                                    <Button type="submit" size="lg" className=" hover:cursor-pointer w-full" disabled={loading}>
                                         {loading ? 'Submitting...' : 'Submit & Download'}
                                     </Button>
                                 </form>

@@ -176,7 +176,7 @@ export default function DownloadPage() {
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button size="lg" className="w-full" onClick={handleDownloadAll}>
+            <Button size="lg" className="w-full hover:cursor-pointer" onClick={handleDownloadAll}>
               <Download className="mr-2 h-5 w-5" />
               Download All Plans
             </Button>
@@ -184,7 +184,7 @@ export default function DownloadPage() {
             <Button
               variant="outline"
               size="lg"
-              className="w-full"
+              className="w-full hover:cursor-pointer"
               onClick={handleClearAndGoHome}
             >
               <Home className="mr-2 h-5 w-5" />
@@ -225,7 +225,7 @@ export default function DownloadPage() {
                     <Button
                       size="sm"
                       onClick={() => handleDownload(item)}
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto hover:cursor-pointer "
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download PDF

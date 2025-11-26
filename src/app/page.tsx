@@ -465,7 +465,7 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="lg"
-              className="relative w-full h-10 md:h-12 sm:w-auto"
+              className="relative w-full h-10 md:h-12 sm:w-auto hover:cursor-pointer"
             >
               <ShoppingCart className="h-5 w-5 md:h-6 md:w-6" />
               {cartCount > 0 && (
@@ -528,15 +528,15 @@ export default function HomePage() {
                     {plan.description}
                   </p>
                 </CardContent>
-                <CardFooter className="p-4 md:p-6 pt-0 flex gap-2">
+                <CardFooter className="p-4 md:p-6 pt-0 flex gap-2 ">
                   <Link href={`/diet-plans/${plan._id}`} className="flex-1">
-                    <Button className="w-full" variant="outline" size="sm">
+                    <Button className="w-full hover:cursor-pointer" variant="outline" size="sm">
                       View Details
                     </Button>
                   </Link>
 
                   <Button
-                    className="flex-1"
+                    className="flex-1 hover:cursor-pointer"
                     size="sm"
                     onClick={() => handleAddToCart(plan)}
                     disabled={isInCart(plan._id!)}
@@ -565,6 +565,8 @@ export default function HomePage() {
               <Button
                 variant="outline"
                 size="icon"
+                className="hover:bg-primary hover:text-primary-foreground hover:cursor-pointer"
+
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
               >
@@ -576,6 +578,7 @@ export default function HomePage() {
               <Button
                 variant="outline"
                 size="icon"
+                className="hover:bg-primary hover:text-primary-foreground hover:cursor-pointer"
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
               >

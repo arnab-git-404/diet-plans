@@ -52,7 +52,7 @@ export default function CartPage() {
               <div className="text-center py-12">
                 <p className="text-lg text-muted-foreground mb-4">Your cart is empty</p>
                 <Link href="/">
-                  <Button>Browse Diet Plans</Button>
+                  <Button className='hover:cursor-pointer' >Browse Diet Plans</Button>
                 </Link>
               </div>
             ) : (
@@ -80,7 +80,7 @@ export default function CartPage() {
                           variant="outline"
                           size="icon"
                           onClick={() => handleRemove(item._id)}
-                          className="self-start"
+                          className="self-start hover:cursor-pointer" 
                         >
                           <Trash2 className="h-4 w-4 text-red-500" />
                         </Button>
@@ -94,7 +94,7 @@ export default function CartPage() {
                     <span className="text-xl font-semibold">Total:</span>
                     <span className="text-2xl font-bold text-green-600">FREE</span>
                   </div>
-                  <Button size="lg" className="w-full" onClick={handleCheckout}>
+                  <Button size="lg" className="w-full hover:cursor-pointer" onClick={handleCheckout}>
                     Proceed to Checkout
                   </Button>
                 </div>
