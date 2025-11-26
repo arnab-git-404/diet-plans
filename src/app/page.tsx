@@ -158,8 +158,9 @@
 //   );
 // }
 
-// V2 Home page
 
+
+// V2 Home page
 "use client";
 
 import { useState, useEffect } from "react";
@@ -175,12 +176,15 @@ import {
   ChevronRight,
   ShoppingCart,
   Plus,
+  Check,
 } from "lucide-react";
 import { DietPlan } from "@/types";
-import { addToCart, getCartCount } from "@/lib/cart";
+import { addToCart, getCartCount, getCart } from "@/lib/cart";
 import { toast } from "sonner";
 
+
 export default function HomePage() {
+
   const router = useRouter();
   const [dietPlans, setDietPlans] = useState<DietPlan[]>([]);
   const [loading, setLoading] = useState(true);
@@ -188,11 +192,21 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [cartCount, setCartCount] = useState(0);
+  const [cartItemIds, setCartItemIds] = useState<Set<string>>(new Set());
+
 
   useEffect(() => {
     fetchDietPlans();
-    setCartCount(getCartCount());
+    updateCartState();
+    // setCartCount(getCartCount());
   }, [page, search]);
+
+    const updateCartState = () => {
+    setCartCount(getCartCount());
+    const cart = getCart();
+    setCartItemIds(new Set(cart.map(item => item._id)));
+  };
+
 
   const fetchDietPlans = async () => {
     setLoading(true);
@@ -200,7 +214,7 @@ export default function HomePage() {
       const params = new URLSearchParams();
       if (search) params.append("search", search);
       params.append("page", page.toString());
-      params.append("limit", "12");
+      params.append("limit", "9");
 
       const response = await fetch(`/api/diet-plans?${params}`);
       const data = await response.json();
@@ -229,9 +243,12 @@ export default function HomePage() {
       pdfUrl: plan.pdfUrl,
       price: plan.price,
     });
-    setCartCount(getCartCount());
+    // setCartCount(getCartCount());
+    updateCartState();
     toast.success(`${plan.title} added to cart!`);
   };
+
+  const isInCart = (planId: string) => cartItemIds.has(planId);
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12">
@@ -313,9 +330,16 @@ export default function HomePage() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
+                  
+                  {/* <div className="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
                     FREE
-                  </div>
+                  </div> */}
+                   {isInCart(plan._id!) && (
+                    <div className="absolute top-3 right-3 bg-green-500 text-white p-2 rounded-full shadow-lg">
+                      <Check className="h-5 w-5" />
+                    </div>
+                  )}
+
                 </div>
                 <CardContent className="p-4 md:p-6 flex-1">
                   <h3 className="text-lg md:text-xl font-semibold mb-2">
