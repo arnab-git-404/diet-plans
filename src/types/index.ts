@@ -29,3 +29,16 @@ export interface AdminUser {
     email: string;
     password: string;
 }
+
+export interface CacheData {
+  data: {
+    dietPlans: DietPlan[];
+    pagination: {
+      totalPages: number;
+      currentPage: number;
+    };
+  };
+  timestamp: number;
+  search: string;
+  page: number;
+}
