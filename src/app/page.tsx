@@ -264,25 +264,16 @@ import {
   Plus,
   Check,
 } from "lucide-react";
-import { DietPlan } from "@/types";
+import { DietPlan, CacheData } from "@/types";
 import { addToCart, getCartCount, getCart } from "@/lib/cart";
 import { toast } from "sonner";
 
-const CACHE_KEY = "dietPlans_cache";
-const CACHE_EXPIRY = 24 * 60 * 60 * 1000;
 
-interface CacheData {
-  data: {
-    dietPlans: DietPlan[];
-    pagination: {
-      totalPages: number;
-      currentPage: number;
-    };
-  };
-  timestamp: number;
-  search: string;
-  page: number;
-}
+const CACHE_KEY = "dietPlans_cache";
+
+// Cache expiry set to 24 hours
+const CACHE_EXPIRY = 24 * 60 * 60 * 1000; 
+
 
 export default function HomePage() {
   const router = useRouter();
