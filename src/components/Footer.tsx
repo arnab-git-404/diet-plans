@@ -15,30 +15,30 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">QUICK LINKS</h3>
+            <p className="text-[#14px] mb-4 font-semibold">QUICK LINKS</p>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Shop All
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Track Your Order
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Refer and Earn
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   FSSAI Grievance Connect
                 </a>
               </li>
@@ -47,25 +47,25 @@ export default function Footer() {
 
           {/* About */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">ABOUT</h3>
+            <p className="text-[#14px] mb-4 font-semibold" >ABOUT</p>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Know our Ingredients
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Our Story
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Licences and Certificates
                 </a>
               </li>
@@ -74,25 +74,25 @@ export default function Footer() {
 
           {/* Policies */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">POLICIES</h3>
+            <h3 className="text-[#14px] mb-4 font-semibold">POLICIES</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Return and Refund Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Shipping Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" className="hover:text-[rgb(223,228,96)]">
                   Terms of Service
                 </a>
               </li>
