@@ -263,9 +263,10 @@ import {
   ShoppingCart,
   Plus,
   Check,
+  Minus,
 } from "lucide-react";
 import { DietPlan, CacheData } from "@/types";
-import { addToCart, getCartCount, getCart } from "@/lib/cart";
+import { removeFromCart, addToCart, getCartCount, getCart } from "@/lib/cart";
 import { toast } from "sonner";
 
 
@@ -431,16 +432,22 @@ export default function HomePage() {
     toast.success(`${plan.title} added to cart!`);
   };
 
+    const handleRemoveFromCart = (planId: string, planTitle: string) => {
+    removeFromCart(planId);
+    updateCartState();
+    toast.success(`${planTitle} removed from cart!`);
+  };
+
   const isInCart = (planId: string) => cartItemIds.has(planId);
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12">
       {/* Hero Section */}
       <div className="text-center mb-8 md:mb-12">
-        <h1 className="text-5xl font-bold mb-4 bg-[#02807f] bg-clip-text text-transparent">
+        <h1 className="text-5xl mb-4 text-[#0b4c49] bg-clip-text">
           Find Your Perfect Diet Plan
         </h1>
-        <p className="text-xl text-muted-foreground mb-8">
+        <p className="text-xl text-[#0b4c49] mb-8">
           Browse our collection of expert-designed diet plans tailored to your
           health goals
         </p>
@@ -500,7 +507,7 @@ export default function HomePage() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {dietPlans.map((plan) => (
               <Card
                 key={plan._id}
@@ -520,8 +527,8 @@ export default function HomePage() {
                     </div>
                   )}
                 </div>
-                <CardContent className="p-4 md:p-6 flex-1">
-                  <h3 className="text-lg md:text-xl font-semibold mb-2">
+                <CardContent className="p-4 md:p-6 flex-1 text-[#0b4c49] ">
+                  <h3 className=" font-semibold text-[18px] md:text-xl mb-2">
                     {plan.title}
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground line-clamp-2">
@@ -539,13 +546,75 @@ export default function HomePage() {
                     className="flex-1 hover:cursor-pointer"
                     size="sm"
                     onClick={() => handleAddToCart(plan)}
-                    disabled={isInCart(plan._id!)}
+                    // disabled={isInCart(plan._id!)}
                     variant={isInCart(plan._id!) ? "secondary" : "default"}
                   >
                     {isInCart(plan._id!) ? (
                       <>
-                        <Check className="h-4 w-4 mr-1" />
-                        In Cart
+                        <Minus className="h-4 w-4 mr-1" />
+                        remove from Cart
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="h-4 w-4 mr-1" />
+                        Add to Cart
+                      </>
+                    )}
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div> */}
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {dietPlans.map((plan) => (
+              <Card
+                key={plan._id}
+                className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+              >
+                <div className="relative aspect-video">
+                  <Image
+                    src={plan.imageUrl}
+                    alt={plan.title}
+                    fill
+                    className="object-cover"
+                  />
+
+                  {isInCart(plan._id!) && (
+                    <div className="absolute top-3 right-3 bg-green-500 text-white p-2 rounded-full shadow-lg">
+                      <Check className="h-5 w-5" />
+                    </div>
+                  )}
+                </div>
+                <CardContent className="p-4 md:p-6 flex-1 text-[#0b4c49] ">
+                  <h3 className=" font-semibold text-[18px] md:text-xl mb-2">
+                    {plan.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground line-clamp-2">
+                    {plan.description}
+                  </p>
+                </CardContent>
+                <CardFooter className="p-4 md:p-6 pt-0 flex gap-2 ">
+                  <Link href={`/diet-plans/${plan._id}`} className="flex-1">
+                    <Button className="w-full hover:cursor-pointer" variant="outline" size="sm">
+                      View Details
+                    </Button>
+                  </Link>
+
+                  <Button
+                    className="flex-1 hover:cursor-pointer"
+                    size="sm"
+                    onClick={() => 
+                      isInCart(plan._id!) 
+                        ? handleRemoveFromCart(plan._id!, plan.title)
+                        : handleAddToCart(plan)
+                    }
+                    variant={isInCart(plan._id!) ? "destructive" : "default"}
+                  >
+                    {isInCart(plan._id!) ? (
+                      <>
+                        <Minus className="h-4 w-4 mr-1" />
+                        Remove
                       </>
                     ) : (
                       <>
