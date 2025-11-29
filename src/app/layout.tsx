@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import {
   Montserrat,
   Open_Sans,
@@ -106,6 +107,7 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <Navbar />
+          {/* <AnnouncementBar /> */}
           <main className="flex-1">
             <SessionProvider>
               {children}
