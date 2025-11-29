@@ -587,7 +587,7 @@ export default function HomePage() {
                   )}
                 </div>
                 <CardContent className="p-4 md:p-6 flex-1 text-[#0b4c49] ">
-                  <h3 className=" font-semibold text-[18px] md:text-xl mb-2">
+                  <h3 className=" font-semibold text-[18px] mb-2">
                     {plan.title}
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground line-clamp-2">
