@@ -327,7 +327,7 @@ export default function Navbar() {
                   <ChevronDown className="w-3 h-3" />
                 </button>
 
-                <div className="absolute left-0 top-full mt-2 w-48 text-white bg-[#02807f] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute left-0 top-full mt-2 w-48 text-white bg-[#02807f] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-2">
                     {healthBundlesLinks.map((link) => (
                       <a
@@ -409,7 +409,7 @@ export default function Navbar() {
                   Refer and Earn
                   <ChevronDown className="w-3 h-3" />
                 </button>
-                <div className="absolute left-0 top-full mt-2 w-48 text-white bg-[#02807f] rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute left-0 top-full mt-2 w-48 text-white bg-[#02807f] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-2">
                     {referLinks.map((link) => (
                       <a
