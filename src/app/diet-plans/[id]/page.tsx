@@ -236,7 +236,7 @@ export default function DietPlanDetailPage() {
                     <CardContent className="p-6 md:p-8 lg:p-12">
                         {/* Title and Price */}
                         <div className="mb-6">
-                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">{dietPlan.title}</h1>
+                            <h1 className="text-2xl text-[#0b4c49] md:text-3xl lg:text-4xl font-bold mb-2">{dietPlan.title}</h1>
                             {dietPlan.price > 0 && (
                                 <p className="text-xl md:text-2xl font-semibold text-primary">
                                     ₹{dietPlan.price}
@@ -246,7 +246,7 @@ export default function DietPlanDetailPage() {
 
                         {/* Description */}
                         <div className="prose prose-sm md:prose-lg max-w-none mb-6 md:mb-8">
-                            <p className="text-sm md:text-base text-muted-foreground whitespace-pre-wrap">
+                            <p className=" text-[#0b4c49] text-sm md:text-base whitespace-pre-wrap">
                                 {dietPlan.description}
                             </p>
                         </div>
