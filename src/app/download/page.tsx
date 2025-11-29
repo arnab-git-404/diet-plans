@@ -176,7 +176,11 @@ export default function DownloadPage() {
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button size="lg" className="w-full hover:cursor-pointer" onClick={handleDownloadAll}>
+            <Button
+              size="lg"
+              className="w-full hover:cursor-pointer"
+              onClick={handleDownloadAll}
+            >
               <Download className="mr-2 h-5 w-5" />
               Download All Plans
             </Button>
