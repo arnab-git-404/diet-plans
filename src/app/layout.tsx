@@ -19,6 +19,7 @@ import {
   Merriweather,
   Source_Sans_3,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 export const montserrat = Montserrat({
   subsets: ["latin"],
